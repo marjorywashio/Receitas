@@ -54,7 +54,7 @@
 
                         <form action="./excluir.php?idReceita=<?=$linha['idReceita'];?>" method="post">
                             <button type="submit">
-                                <img src="./img/cancelar.png" alt="Editar">
+                                <img src="./img/excluir.png" alt="Editar">
                                 <span class="tooltip">Excluir</span>
                                 
                             </button>
