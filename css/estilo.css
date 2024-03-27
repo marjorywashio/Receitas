@@ -1,0 +1,255 @@
+
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.fundo{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/fundo.png");
+    background-size: 100% auto;
+    background-repeat: repeat-y; /* Para repetir verticalmente */
+    background-position: center; /* Para centralizar a imagem */
+    background-attachment: fixed;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 68px;
+    width: auto;
+    z-index: 999;
+    margin-left: 15px;
+}
+
+.tituloFundo {
+    margin-top: 68px;
+    background-color: #097561;
+    color: #F9F6F6;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.corpo{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 20px;
+    border: 2px solid #868686;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #d5ffdc;
+    width: 500px;
+    font-size: medium;
+    display: flex; 
+    flex-direction: column; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.card button{
+    font-family: Verdana, Genev;a, Tahoma, sans-serif;
+    font-size: medium;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 15px;
+    align-self: flex-end;
+}
+
+.card form{
+    display: inline-block;
+}
+
+p {
+    margin-block-start: 1px;
+}
+
+.btnDireita{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.btnDireita .btnCadastro {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.btnDireita .btnCadastro img{
+    width: 26px;
+    height: 26px;
+}
+
+.btnExcluir,
+.btnEditar{
+    background-color: red;
+    border: none;
+    padding: 0;
+    margin: 0;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+}
+
+.btnExcluir img,
+.btnEditar img{
+    width: 26px;
+    height: 26px;
+}
+
+.tooltip {
+    visibility: hidden;
+    min-width: 60px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: relative;
+    z-index: 1;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon{
+    background-color: #9affaa;
+}
+
+.card .icon:hover + .tooltip,
+.btnEditar:hover .tooltip,
+.btnExcluir:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btnEditarphp{
+    display: flex;
+    text-align: right;
+}
+
+.icon{
+    height: 30px;
+    width: auto;
+    margin-right: 5px;
+}
+
+
+/* MENU */
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 68px;
+    background-color: #065143;
+    color: white;
+    font-weight: 400;
+}
+
+.menu ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    background-color: #065143;
+    align-items: center;
+    justify-content: flex-end; /* alinhamento horizontal */
+    color: white;
+    font-weight: 400; /* letra em negrito */
+}
+
+.menu ul li{
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.menu ul li:hover{
+    background-color: #285f61;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+
+/* CADASTRO DE RECEITAS */
+
+.receitas{
+    justify-content: center /* alinhamento na horizontal*/;
+    flex-direction: column; /* altera a direção dos objetos na div*/
+}
+
+.formulario{
+    margin: 20px auto;
+    border: 1px solid #868686;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #d5ffdc;
+    max-width: 600px;
+    font-size: 18px;
+}
+
+.btnDireita form {
+    display: inline-block;
+    margin-right: 1px; /* Espaçamento entre os botões */
+}
+
+input[type="submit"],
+input[type="reset"]{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+input[type="text"]{
+    size-adjust: auto;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.row{
+    margin-bottom: 10px;
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+}

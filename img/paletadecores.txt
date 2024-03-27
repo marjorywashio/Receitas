@@ -1,0 +1,5 @@
+verde escuro = #065143
+amarelo = #EFB22F
+verde claro = #6ABE7B
+verde mais claro= #d5ffdc
+snow = #F9F6F6
