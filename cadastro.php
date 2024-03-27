@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>:: Sabores Surpreendentes ::</title>
+    <title>::: Cadastre uma receita :::</title>
     <link rel="stylesheet" href="./css/estilo.css">
 </head>
 <body>
@@ -23,65 +23,54 @@
             <!-- get: não "esconde" na URL -->
             <form action="cadastrobd.php" method="post">
                 <div class="row">
-                    <div class="col">
-                        <label for="titulo"><strong>Título da receita</strong></label>    <!-- for = id -->
-                        <input 
-                            type="text" 
-                            name="titulo" 
-                            id="titulo" 
-                            placeholder="Dê um nome a sua receita...">
-                    </div>
+                    <label for="titulo"><strong>Título da receita</strong></label>    <!-- for = id -->
+                    <input 
+                        type="text" 
+                        name="titulo" 
+                        id="titulo" 
+                        placeholder="Dê um nome a sua receita...">
                 </div>
                 
                 <div class="row">
-                    <div class="col">
-                        <label for="ingredientes"><strong>Ingredientes</strong></label>
-                        <textarea name="ingredientes" id="ingredientes" rows="4" cols="1"></textarea>
-                    </div>
+                    <label for="ingredientes"><strong>Ingredientes</strong></label>
+                    <textarea name="ingredientes" id="ingredientes" rows="4" cols="1"></textarea>
                 </div>
 
                 <div class="row">
-                    <div class="col">
-                        <label for="modoPreparo"><strong>Modo de preparo</strong></label>
-                        <textarea name="modoPreparo" id="modoPreparo" rows="4" cols="1"></textarea>
-                    </div>
+                    <label for="modoPreparo"><strong>Modo de preparo</strong></label>
+                    <textarea name="modoPreparo" id="modoPreparo" rows="4" cols="1"></textarea>
                 </div>
 
                 <div class="row">
-                    <div class="col">
-                        <label for="qtdePessoas"><strong>Serve quantas pessoas</strong></label>
-                        <input 
-                            type="text" 
-                            name="qtdePessoas" 
-                            id="qtdePessoas" 
-                            placeholder="Coloque em número...">
-                    </div>
+                    <label for="qtdePessoas"><strong>Serve quantas pessoas</strong></label>
+                    <input 
+                        type="text" 
+                        name="qtdePessoas" 
+                        id="qtdePessoas" 
+                        placeholder="Coloque em número...">
                 </div>
 
                 <div class="row">
-                    <div class="col">
-                        <label for="tempoPreparo"><strong>Tempo de preparo</strong></label>
-                        <input 
-                            type="text" 
-                            name="tempoPreparo" 
-                            id="tempoPreparo" 
-                            placeholder="Escreva quanto tempo para preparar a receita...">
-                    </div>
+                    <label for="tempoPreparo"><strong>Tempo de preparo</strong></label>
+                    <input 
+                        type="text" 
+                        name="tempoPreparo" 
+                        id="tempoPreparo" 
+                        placeholder="Escreva quanto tempo para preparar a receita...">
                 </div>
 
                 <div class="btnDireita">
                     
-                        <button type="submit" class="btnEditar  btnCadastro">
-                            <span class="tooltip">Salvar</span>
+                        <button type="submit">
                             <img src="./img/salvar.png" alt="Editar">
+                            <span class="tooltip">Salvar</span>
+                            
                         </button>
                                     
-                        <button 
-                            type="button" 
-                            class="btnExcluir  btnCadastro"
-                            onclick="window.location.href='visualizacao.php'">
-                            <span class="tooltip">Cancelar</span>
+                        <button type="reset" onclick="window.location.href='visualizacao.php'">
                             <img src="./img/cancelar.png" alt="Editar">
+                            <span class="tooltip">Cancelar</span>
+                            
                         </button>
                 </div>
 

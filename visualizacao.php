@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/estilo.css">
-        <title> ::: Sabores Surpreendentes ::</title>
+        <title> ::: Sabores Surpreendentes :::</title>
     </head>
     <body>
         <div class="fundo">
@@ -31,32 +31,35 @@
                     <h2 class="titulo"><?=$linha["titulo"];?></h2>
                     <p><strong>Ingredientes:</strong><br> <?= nl2br($linha["ingredientes"]); ?></p>
                     <p><strong>Modo de Preparo:</strong><br> <?= nl2br($linha["modoPreparo"]); ?></p>
-                    <p>
-                        <img class="icon" src="./img/pessoas.png" alt="Quantidade de pessoas">
-                        <span class="tooltip">Quantidade de pessoas</span> 
-                        <?=$linha["qtdePessoas"];?>
+                    <p class="textocard">
+                            <img class="icon" src="./img/pessoas.png" alt="Quantidade de pessoas">
+                            <span class="tooltip1">Quantidade de pessoas</span> 
+                            <?=$linha["qtdePessoas"];?>
                     </p>
-                    <p>
+                    <p class="textocard">
                         <img class="icon" src="./img/tempo.png" alt="Tempo de preparo">
-                        <span class="tooltip">Tempo de preparo</span>
-                        <?=$linha["tempoPreparo"];?>
+                        <span class="tooltip1">Tempo de preparo</span>
+                        <span class="tempopreparo"><?=$linha["tempoPreparo"];?></span>
                     </p>
 
                     <div class="btnDireita">
-                        
+
                         <form action="./editar.php?idReceita=<?=$linha['idReceita'];?>" method="post">
-                            <button type="submit" class="btnEditar">
+                            <button type="submit">
                                 <img src="./img/editar.png" alt="Editar">
                                 <span class="tooltip">Editar</span>
+                                
                             </button>
                         </form>
 
                         <form action="./excluir.php?idReceita=<?=$linha['idReceita'];?>" method="post">
-                            <button type="submit" class="btnExcluir">
+                            <button type="submit">
                                 <img src="./img/cancelar.png" alt="Editar">
                                 <span class="tooltip">Excluir</span>
+                                
                             </button>
                         </form>
+
                     </div>
                     
                 </div>
