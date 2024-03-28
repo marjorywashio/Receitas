@@ -26,7 +26,7 @@ form{
     left: 0;
     height: 68px;
     width: auto;
-    z-index: 999;
+    z-index: 1000;
     margin-left: 15px;
 }
 
@@ -50,6 +50,7 @@ form{
     flex-wrap: wrap;
 }
 
+/* CARD DA VISUALIZAÇÃO */
 .card {
     margin: 20px;
     border: 2px solid #868686;
@@ -199,6 +200,7 @@ input[type="text"]{
     background-color: #065143;
     color: white;
     font-weight: 400;
+    z-index: 999;
 }
 
 .menu ul{
@@ -256,4 +258,53 @@ textarea{
     margin-top: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
+}
+
+/* CARD DELETE */
+
+.carddelete{
+    position: fixed; /* Para manter o elemento fixo na tela */
+    top: 50%; /* Posiciona o topo do elemento no centro vertical */
+    left: 50%; /* Posiciona a esquerda do elemento no centro horizontal */
+    transform: translate(-50%, -50%); /* Move o elemento de volta metade da sua largura e altura */
+    margin: 0 auto;    
+    border: 2px solid #868686;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #d5ffdc;
+    width: 300px;
+    height: 150px;
+    font-size: medium;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+.titulodelete{
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+input[type="checkbox"]{
+    height: 25px;
+}
+
+input[type="submit"]{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+input[type="submit"]:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }
