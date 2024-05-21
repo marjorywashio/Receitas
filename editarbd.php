@@ -37,7 +37,16 @@
                     WHERE `idReceita` = :idReceita
         
                 ");
-                $comandoSQL->bindParam(':foto', $foto); 
+
+                $comandoSQL->execute(array(
+                    ":idReceita" => $idReceita = intval($idReceita),
+                    ":titulo" => $titulo,
+                    ":foto" => $foto,
+                    ":ingredientes" => $ingredientes,
+                    ":modoPreparo" => $modoPreparo,
+                    ":qtdePessoas" => $qtdePessoas = intval($qtdePessoas),
+                    ":tempoPreparo" => $tempoPreparo
+                ));
             } else {
                 $comandoSQL = $conexao->prepare("
                     UPDATE `receita` SET
@@ -50,16 +59,16 @@
                     WHERE `idReceita` = :idReceita
             
                 ");
+            
+                $comandoSQL->execute(array(
+                    ":idReceita" => $idReceita = intval($idReceita),
+                    ":titulo" => $titulo,
+                    ":ingredientes" => $ingredientes,
+                    ":modoPreparo" => $modoPreparo,
+                    ":qtdePessoas" => $qtdePessoas = intval($qtdePessoas),
+                    ":tempoPreparo" => $tempoPreparo
+                ));
             }
-
-            $comandoSQL->execute(array(
-                ":idReceita" => $idReceita = intval($idReceita),
-                ":titulo" => $titulo,
-                ":ingredientes" => $ingredientes,
-                ":modoPreparo" => $modoPreparo,
-                ":qtdePessoas" => $qtdePessoas = intval($qtdePessoas),
-                ":tempoPreparo" => $tempoPreparo
-            ));
              
             if ($comandoSQL->rowCount() > 0){
 
