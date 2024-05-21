@@ -161,12 +161,12 @@ p {
 }
 
 .textocard .icon {
-    margin-right: 5px; /* Adiciona margem à direita do ícone */
+    margin-right: 5px; 
 }
 
 .textocard .tooltip1 {
     display: none; /* Esconde o tooltip por padrão */
-    position: absolute; /*  Posiciona o tooltip absolutamente */
+    position: absolute; 
 }
 
 .textocard:hover .tooltip1 {
@@ -174,7 +174,7 @@ p {
 }
 
 .textocard .tempoPreparo {
-    margin-left: 30px; /* Adiciona margem à esquerda do tempo de preparo */
+    margin-left: 30px; 
 }
 
 .prep{
@@ -330,10 +330,10 @@ input[type="file"]{
 /* ====================== CARD DELETE ====================== */
 
 .carddelete{
-    position: fixed; /* Para manter o elemento fixo na tela */
-    top: 50%; /* Posiciona o topo do elemento no centro vertical */
-    left: 50%; /* Posiciona a esquerda do elemento no centro horizontal */
-    transform: translate(-50%, -50%); /* Move o elemento de volta metade da sua largura e altura */
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     margin: 0 auto;    
     border: 2px solid #868686;
     border-radius: 5px;
