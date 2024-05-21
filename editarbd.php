@@ -2,6 +2,17 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+        $foto = "";
+
+        if(!empty($_FILES["foto"]["name"])){
+            
+            $pasta = "./imagem/";
+            
+            $nomeOriginal = str_replace(" ","_",$_FILES["foto"]["name"]);
+
+            $foto = $nomeOriginal;
+        }
+
         // pegando os dados vindos do formulário
         $idReceita = filter_input(INPUT_POST, "idReceita", FILTER_SANITIZE_NUMBER_INT);
         $titulo = filter_input(INPUT_POST, "titulo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -13,18 +24,33 @@
         try{
             require_once("./_conexao/conexao.php");
 
-            $comandoSQL = $conexao->prepare("
-
-                UPDATE `receita` SET
-                    `idReceita` = :idReceita,
-                    `titulo` = :titulo,
-                    `ingredientes` = :ingredientes,
-                    `modoPreparo` = :modoPreparo,
-                    `qtdePessoas` = :qtdePessoas,
-                    `tempoPreparo` = :tempoPreparo
-                WHERE `idReceita` = :idReceita
+            if (!empty($foto)) {
+                $comandoSQL = $conexao->prepare("
+                    UPDATE `receita` SET
+                        `idReceita` = :idReceita,
+                        `titulo` = :titulo,
+                        `foto` = :foto,
+                        `ingredientes` = :ingredientes,
+                        `modoPreparo` = :modoPreparo,
+                        `qtdePessoas` = :qtdePessoas,
+                        `tempoPreparo` = :tempoPreparo
+                    WHERE `idReceita` = :idReceita
+        
+                ");
+                $comandoSQL->bindParam(':foto', $foto); 
+            } else {
+                $comandoSQL = $conexao->prepare("
+                    UPDATE `receita` SET
+                        `idReceita` = :idReceita,
+                        `titulo` = :titulo,
+                        `ingredientes` = :ingredientes,
+                        `modoPreparo` = :modoPreparo,
+                        `qtdePessoas` = :qtdePessoas,
+                        `tempoPreparo` = :tempoPreparo
+                    WHERE `idReceita` = :idReceita
             
-            ");
+                ");
+            }
 
             $comandoSQL->execute(array(
                 ":idReceita" => $idReceita = intval($idReceita),
@@ -35,10 +61,14 @@
                 ":tempoPreparo" => $tempoPreparo
             ));
              
-            if ($comandoSQL->rowCount() >= 0){
-                // Atualizado com sucesso, redirecionar para a página de visualização
+            if ($comandoSQL->rowCount() > 0){
+
+                if(!empty($_FILES["foto"]["name"])){
+                    move_uploaded_file($_FILES["foto"]["tmp_name"], $pasta.$foto);
+                }
+                
                 header("Location: visualizacao.php");
-                exit(); // Certifique-se de sair do script após o redirecionamento
+                exit(); 
             }
             else{
                 echo("Erro ao atualizar dados");

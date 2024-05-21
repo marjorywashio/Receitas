@@ -2,6 +2,18 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+        if(!empty($_FILES["foto"]["name"])){
+            
+            $pasta = "./imagem/";
+            
+            $nomeOriginal = str_replace(" ","_",$_FILES["foto"]["name"]);
+
+            $foto = $nomeOriginal;
+        }
+        else{
+            $foto = "_perfil.png";
+        }
+
         // pegando os dados vindos do formulário
         $titulo = filter_input(INPUT_POST, "titulo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $ingredientes = filter_input(INPUT_POST, "ingredientes", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -16,12 +28,14 @@
             $comandoSQL = $conexao->prepare("
                 INSERT INTO receita(
                     `titulo`,
+                    `foto`,
                     `ingredientes`,
                     `modoPreparo`,
                     `qtdePessoas`,
                     `tempoPreparo`)
                 VALUES(
                     :titulo,
+                    :foto,
                     :ingredientes,
                     :modoPreparo,
                     :qtdePessoas,
@@ -31,6 +45,7 @@
 
             $comandoSQL->execute(array(
                 ":titulo" => $titulo,
+                ":foto" => $foto,
                 ":ingredientes" => $ingredientes,
                 ":modoPreparo" => $modoPreparo,
                 ":qtdePessoas" => $qtdePessoas = intval($qtdePessoas),
@@ -38,9 +53,13 @@
             ));
 
             if ($comandoSQL->rowCount() > 0){
-                // Atualizado com sucesso, redirecionar para a página de visualização
+                
+                if(!empty($_FILES["foto"]["name"])){
+                    move_uploaded_file($_FILES["foto"]["tmp_name"], $pasta.$foto);
+                }
+
                 header("Location: visualizacao.php");
-                exit(); // Certifique-se de sair do script após o redirecionamento
+                exit();
             }
             else{
                 echo("Erro ao inserir dados");

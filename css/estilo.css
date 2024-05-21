@@ -2,24 +2,119 @@
 body, html{
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-
-form{
-    background-color: transparent;
-}
-
-.fundo{
-    width: 100%;
-    height: 100%;
+    font-family: 'Poppins';
+    margin-top: 30px;
     background-image: url("../img/fundo.png");
     background-size: 100% auto;
-    background-repeat: repeat-y; /* Para repetir verticalmente */
-    background-position: center; /* Para centralizar a imagem */
+    background-position: center;
+    background-repeat: repeat;
     background-attachment: fixed;
 }
 
+/* ====================== FRASE ====================== */
+.frase{
+    font-family: 'Alex Brush';
+    font-size: 250%;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* ====================== ESTRUTURA DA PÁGINA  ====================== */
+.container {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-right: 300px;
+}
+
+/* ====================== SIDEBAR ====================== */
+
+.sidebar {
+    width: 300px;
+    padding: 0px;
+    background-color: #065143;
+    color: #F9F6F6;
+    position: fixed;
+    top: 0; 
+    right: 0; 
+    height: 100%;
+    overflow-y: auto; 
+    margin-top: 50px;
+}
+
+.sidebar-titulo{
+    font-family: 'Euphoria Script';
+    text-align: center;
+    font-size: 200%;
+}
+
+.lista-receitas{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+}
+
+.lista-receitas ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-receitas a{
+    color: #FAFCD3;
+    text-decoration: none;
+}
+
+/* ====================== MENU ====================== */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 68px;
+    background-color: #065143;
+    color: #FAFCD3;
+    font-weight: 400;
+    z-index: 999;
+}
+
+.menu ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    background-color: #065143;
+    align-items: center;
+    justify-content: flex-end; /* alinhamento horizontal */
+    color: #F9F6F6;
+    font-weight: 400; /* letra em negrito */
+}
+
+.menu ul li{
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.menu ul li:hover{
+    background-color: #285f61;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #F9F6F6;
+}
+
+/* ====================== LOGO ====================== */
 .logo {
     position: fixed;
     top: 0;
@@ -30,47 +125,33 @@ form{
     margin-left: 15px;
 }
 
-.tituloFundo {
-    margin-top: 68px;
-    background-color: #097561;
-    color: #F9F6F6;
-    height: 43px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.titulo{
-    text-align: center;
-}
-
-.corpo{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-/* CARD DA VISUALIZAÇÃO */
-.card {
+/* ========================== VISUALIZAÇÃO ========================== */
+/* ====================== CARD DA VISUALIZAÇÃO ====================== */
+.card,
+.formulario {
     margin: 20px;
-    border: 2px solid #868686;
     border-radius: 5px;
     padding: 10px;
-    background-color: #d5ffdc;
-    width: 500px;
+    background-image: linear-gradient(#b7edc1,#55b569);
+    width: 600px;
     font-size: medium;
     display: flex; 
     flex-direction: column; 
+    justify-content: center;
+    align-items: center;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-}
-.card h2 {
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 p {
     margin-block-start: 1px;
     margin-bottom: 5px;
+}
+
+.titulo{
+    text-align: center;
+    font-family: 'Euphoria Script';
+    font-size: 250%;
+    margin: 10px;
 }
 
 .textocard {
@@ -96,7 +177,39 @@ p {
     margin-left: 30px; /* Adiciona margem à esquerda do tempo de preparo */
 }
 
-/* BOTÕES */
+.prep{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.prep-box{
+    background-image: linear-gradient(#D6F3FF,#6ABE7B);
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.titulo1{
+    background-color: #097561;
+    font-size: 120%;
+    text-align: center;
+    color: white;
+}
+
+.text{
+    margin-top: 0;
+    padding: 10px;
+}
+
+/* ====================== BOTÕES ====================== */
 button{
     padding: 0;
     cursor: pointer;
@@ -128,7 +241,7 @@ button:hover .tooltip{
     opacity: 1;
 }
 
-/* TOOLTIP */
+/* ====================== TOOLTIP ====================== */
 .tooltip {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     visibility: hidden;
@@ -163,9 +276,9 @@ button:hover .tooltip{
     right: 75%;
 }
 
-/* ÍCONES DO CARD */
+/* ====================== ÍCONES DO CARD ====================== */
 .icon{
-    background-color: #73ff8b;  
+    background-color: #6ABE7B;  
     border-radius: 23px;  
     height: 46px;
     width: auto;
@@ -181,75 +294,13 @@ button:hover .tooltip{
     opacity: 1;
 }
 
-/* INPUT TEXT */
-input[type="text"]{
-    size-adjust: auto;
-    font-size: 18px;
-    width: 100%;
-    margin-top: 10px;
-}
 
-/* MENU */
-
-.menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%; 
-    height: 68px;
-    background-color: #065143;
-    color: white;
-    font-weight: 400;
-    z-index: 999;
-}
-
-.menu ul{
-    margin: 0;
-    padding: 0;
+/* ====================== FORMULÁRIO ====================== */
+.form{
+    padding: 5px;
+    width: 580px;
     display: flex;
-    list-style-type: none;
-    background-color: #065143;
-    align-items: center;
-    justify-content: flex-end; /* alinhamento horizontal */
-    color: white;
-    font-weight: 400; /* letra em negrito */
-}
-
-.menu ul li{
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.menu ul li:hover{
-    background-color: #285f61;
-}
-
-.menu a{
-    text-decoration: none;
-    color: white;
-}
-
-
-/* CADASTRO DE RECEITAS */
-
-.receitas{
-    justify-content: center /* alinhamento na horizontal*/;
-    flex-direction: column; /* altera a direção dos objetos na div*/
-}
-
-.formulario{
-    margin: 20px auto;
-    border: 1px solid #868686;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: #d5ffdc;
-    max-width: 600px;
-    font-size: 18px;
-}
-
-.row{
-    margin-bottom: 10px;
+    flex-direction: column;
 }
 
 textarea{
@@ -258,9 +309,25 @@ textarea{
     margin-top: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
+    resize: none;
 }
 
-/* CARD DELETE */
+/* ====================== INPUT ====================== */
+input[type="text"]{
+    size-adjust: auto;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="file"]{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* ====================== CARD DELETE ====================== */
 
 .carddelete{
     position: fixed; /* Para manter o elemento fixo na tela */
@@ -271,23 +338,25 @@ textarea{
     border: 2px solid #868686;
     border-radius: 5px;
     padding: 20px;
-    background-color: #d5ffdc;
-    width: 300px;
-    height: 150px;
+    background-image: linear-gradient(#b7edc1,#55b569);
+    width: 340px;
+    height: 180px;
     font-size: medium;
     display: flex; 
     flex-direction: column; 
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
+}
+
+.confirm{
+    font-family: 'Euphoria Script';
+    font-size: 220%;
+    text-align: center;
 }
 
 .titulodelete{
-    font-size: 25px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 600;
+    font-size: 110%;
 }
 
 input[type="checkbox"]{
@@ -295,7 +364,6 @@ input[type="checkbox"]{
 }
 
 input[type="submit"]{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     padding: 5px;
     border-radius: 5px;
@@ -305,6 +373,64 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
     background-color: red;
-    color: white;
+    color: #F9F6F6;
     cursor: pointer;
 }
+
+/* ========================= BOTÃO VOLTAR AO INÍCIO ========================*/
+#myBtn {
+    display: none; /* Ocultar o botão por padrão */
+    position: fixed; /* Posição fixa para que o botão permaneça sempre visível */
+    bottom: 20px; /* Distância do botão ao fundo da página */
+    right: 20px; /* Distância do botão ao lado direito da página */
+    z-index: 99; /* Garante que o botão esteja acima de outros elementos */
+    font-size: 24px; /* Tamanho da fonte do botão */
+    border: none; /* Remove a borda */
+    outline: none; /* Remove o contorno do botão */
+    background-color: #6ABE7B; /* Cor de fundo do botão */
+    color: #F9F6F6; /* Cor do texto do botão */
+    cursor: pointer; /* Altera o cursor ao passar por cima do botão */
+    padding: 1px; /* Adiciona um pouco de espaço dentro do botão */
+    border-radius: 10px; /* Arredonda os cantos do botão */
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    margin-right: 300px;
+    width: 40px;
+}
+
+#myBtn:hover {
+    background-color: #065143; /* Altera a cor de fundo ao passar o mouse sobre o botão */
+}
+
+/* ====================== INDEX ====================== */
+.icon1-container {
+    position: relative;
+    width: 100%;
+}
+
+.loader-container {
+    width: 100%;
+    height: 30px;
+    background-color: #F9F6F6;
+    margin-top: 250px;
+    position: relative;
+}
+
+.loader {
+    width: 0;
+    height: 100%;
+    background-color: #065143;
+    animation: progress 4s ease-in-out forwards;
+    color: #F9F6F6;
+    text-align: center;
+    font-family: 'Euphoria Script';
+    font-size: 160%
+    
+}
+
+
+@keyframes progress {
+    0% { width: 0; }
+    50% { width: 50%; }
+    100% { width: 100%; }
+}
+
